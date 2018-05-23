@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 2018_05_23_180900) do
     t.string "translated_word"
     t.string "spoken_language"
     t.string "translated_language"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_flashcards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema.define(version: 2018_05_23_180900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "flashcards", "users"
 end
