@@ -1,4 +1,7 @@
 class FlashcardsController < ApplicationController
+  def home
+  end
+
   def index
     @flashcards = Flashcard.all
   end
